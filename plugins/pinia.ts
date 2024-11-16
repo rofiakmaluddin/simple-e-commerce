@@ -3,6 +3,6 @@ import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const pinia = createPinia();
-  pinia.use(piniaPluginPersistedState);
+  if (import.meta.client) pinia.use(piniaPluginPersistedState);
   nuxtApp.vueApp.use(pinia);
 });
